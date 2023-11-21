@@ -22,8 +22,8 @@ public class Rent : BaseEntity
         RentCarException.When(rentDate > DateTime.Now.AddHours(1), "A operação deve ser agendada com no máximo 1 hora de antecedência");
         RentCarException.When(clientId == Guid.Empty, "ClientId não pode ser vazio");
         RentCarException.When(carId == Guid.Empty, "CarId não pode ser vazio");
-        RentCarException.When(Client is null, "Client não pode ser nulo");
-        RentCarException.When(Car is null, "Car não pode ser nulo");
+        RentCarException.When(ClientId == null, "Client não pode ser nulo");
+        RentCarException.When(CarId == null, "Car não pode ser nulo");
         RentCarException.When(
             !string.Equals(operation, "A", StringComparison.OrdinalIgnoreCase) && 
             !string.Equals(operation, "D", StringComparison.OrdinalIgnoreCase),

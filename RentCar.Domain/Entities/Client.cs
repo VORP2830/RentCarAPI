@@ -21,7 +21,7 @@ public class Client : BaseEntity
         cpf = Regex.Replace(cpf, "[^0-9]", "");
         RentCarException.When(cpf.Length != 11, "CPF deve ter 11 números");
         RentCarException.When(birthDay > DateOnly.FromDateTime(DateTime.Now), "Você não pode nascer no futuro");
-        Name = name;
+        Name = name.Trim();
         CPF = cpf;
         BirthDay = birthDay;
     }
