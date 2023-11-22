@@ -67,6 +67,6 @@ public class ClientService : IClientService
             CPF = cpf
         };
         IEnumerable<Client> clients = await _unitOfWork.ClientRepository.GetAll(clientFilter);
-        if(clients != null) throw new RentCarException("CPF já existe na base de dados");
+        if(clients.Count() > 0) throw new RentCarException("CPF já existe na base de dados");
     }
 }

@@ -74,6 +74,7 @@ public class RentService : IRentService
         IEnumerable<Rent> rents = await _unitOfWork.RentRepository.GetAll(rentFilter);
         if(rents is null) return true;
         Rent lastRent = rents.LastOrDefault();
+        if(lastRent is null) return true;
         if(lastRent.Operation == "D") return true;
         return false;
     }
