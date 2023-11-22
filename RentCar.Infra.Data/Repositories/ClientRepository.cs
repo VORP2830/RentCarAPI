@@ -23,10 +23,8 @@ public class ClientRepository : GenericRepository<Client>, IClientRepository
         {
             query = query.Where(c => c.Name
                                         .ToLower()
-                                        .ToString()
                                         .Contains(clientFilter.Name
-                                                                .ToLower()
-                                                                .ToString()));
+                                                                .ToLower()));
         }
         if (clientFilter.CPF != null)
         {

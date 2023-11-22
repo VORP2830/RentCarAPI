@@ -23,10 +23,8 @@ public class CarRepository : GenericRepository<Car>, ICarRepository
         {
             query = query.Where(c => c.Model
                                         .ToLower()
-                                        .ToString()
                                         .Contains(carFilter.Model
-                                                                .ToLower()
-                                                                .ToString()));
+                                                                .ToLower()));
         }
         if (carFilter.Brand != null)
         {
